@@ -34,15 +34,16 @@ body{
 }
 
 header{
-    width: 90vw;
+    width: 100vw;
     height: 10vh;
-    margin-left: 5vw;
-    margin-right: 5vw;
     display: flex;
+    padding-left: 5vw;
+    padding-right: 5vw;
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    z-index: 1000;
+    background-color: #5aa6cb;
+    z-index: 100;
 }
 
 nav > ul{
@@ -151,10 +152,14 @@ ul > li :focus
     position: absolute;
     left: 5rem;
     background-color: #f9f9f9;
-    min-width: 5rem;
+    min-width: 10rem;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     border-radius: 0.25rem;
+}
+
+.nested-dropdown-content:hover{
+    display: block;
 }
 
 .nested-dropdown-content a {
@@ -240,7 +245,7 @@ ul > li :focus
 }
 .first-container{
     width: 50%;
-    margin-top: 25vh;
+    margin-top: 45vh;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
@@ -277,7 +282,7 @@ ul > li :focus
 }
 #about{
     bottom: 0;
-    height: 60vh;
+    height: 20vh;
     position: relative;
     top: 100vh;
     scroll-margin-top: 10vh;
@@ -295,73 +300,227 @@ ul > li :focus
     padding-left: 5vw;
     padding-right: 5vw;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     grid-gap: 10px;
     background-color: #ffffff;
     padding: 1rem;
-}
-
-#about > #desc{
-    grid-area: 1 / 2 span / 2 span / 2;
-    font-size: 0.8rem;
-}
-
-#about > div {
-    background-color: rgba(255, 255, 255, 0.253);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-    width: 50%;
-    height: 10%;
-}
-
-.aboutbtn{
-    border: none;
-    outline: none;
-    padding: 0.75rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    height: max-content;
-    width: max-content;
-    border-radius: 2rem;
-    background-color: #2196F3;
-    margin-top: 2rem;
-    margin-left: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
-.aboutbtn > a{
-    text-decoration: none;
-    color: white;
-    font-size: 0.75rem;
-}
-
-.aboutbtn:hover{
-    cursor: pointer;
+    height: fit-content;
 }
 
 #desc{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    height: 100%;
+    padding: auto;
+    justify-content: center;
     padding: 2rem;
-    width: 50%;
-    word-wrap: wrap;
-    margin-left: 2rem;
+    padding-bottom: -8rem;
 }
 
-.info{
+.aboutbtn{
+    background-color: #5aa6cb;
     padding: 1rem;
-    text-align: left;
-    font-size: 1rem;
+    border: none;
+    outline: none;
+    width: 7rem;
+    border-radius: 5rem;
+    margin: 2rem;
+    margin-left: 0;
 }
-.about-content{
-    width: 50%;
+
+
+.aboutbtn > a{
+    color: white;
+    text-decoration: none;
 }
 
 
-#about > info1{
-    grid-area: 2 / 1 / 2 / 1;
-    font-size: 0.8rem;
+
+#info1{
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    height: fit-content;
 }
 
+#info1 > h3,
+#info2 > h3,
+#info3 > h3,
+#info4 > h3
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #203540;
+}
+
+.content-logo{
+    margin: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: #5aa6cb;
+}
+
+#info2{
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    height: fit-content;
+}
+#info3{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 3;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    height: fit-content;
+}
+#info4{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 4;
+    grid-column-end: 4;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    height: fit-content;
+}
+
+#services{
+    display: block;
+    position: relative;
+    top: 95vh;
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    scroll-margin-top: 10vh;
+}
+
+/* .cards:hover,
+.cards:focus
+{
+    background-color: #5aa6cb;
+    cursor: pointer;
+    color: white;
+} */
+
+.cards:hover .services-icons > i,
+.cards:hover .services-desc > p,
+.cards:hover .services-desc > h3
+{
+    color: white;
+}
+
+.cards:hover{
+    cursor: pointer;
+}
+
+.service-header{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1rem;
+    height: 5rem;
+}
+
+.service-header > img{
+    height: 5rem;
+    width: auto;
+}
+
+.service-header > span{
+    position: absolute;
+    top: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 1rem;
+    left: 0%;
+    color: #203540;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 500ms ease-in-out;
+}
+
+.services-intro{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.services-cards{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cards{
+    z-index: 1;
+    position: relative;
+    margin: 1rem;
+    height: 40vh;
+    width: 20vw;
+    margin-top: 10rem;
+    box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.493);
+    border-radius: 1rem;
+    transition: 500ms ease-in-out;
+}
+
+.cards::after{
+    z-index: -1;
+    position: absolute;
+    content: "";
+    background-color: #5aa6cb;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: 500ms;
+    border-radius: 1rem;
+}
+
+.cards:hover::after{
+    transform: scaleY(1);
+    transform-origin: bottom;
+}
+
+.services-cards > .cards > .services-icons{
+    height: 10rem;
+    width: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #5aa6cb;
+    transition: 500ms ease-in-out;
+}
+
+.services-cards > .cards > .services-desc{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 50%;
+    width: 100%;
+    padding: 1rem;
+    transform: translate(-50%, -50%);
+    color: #203540;
+    transition: 500ms ease-in-out;
+}
